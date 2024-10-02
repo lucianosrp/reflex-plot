@@ -1,0 +1,8 @@
+*.db
+*.py[cod]
+.coverage
+htmlcov
+.web
+__pycache__/
+assets/external/
+reflex-plot-example
