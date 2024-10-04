@@ -50,7 +50,7 @@ def test_bar_chart():
                             "name": "RechartsXAxis",
                             "props": [
                                 "includeHidden={false}",
-                                'label={{"value": "b", "position": "bottom"}}',
+                                'label={{"value": "a", "position": "bottom"}}',
                                 "stroke={`var(--gray-9)`}",
                                 "tickLine={false}",
                             ],
@@ -73,7 +73,7 @@ def test_bar_chart():
                         {
                             "name": "RechartsYAxis",
                             "props": [
-                                'label={{"value": "a", "position": "left", "angle": -90}}',
+                                'label={{"value": "b", "position": "left", "angle": -90}}',
                                 "stroke={`var(--gray-9)`}",
                                 "tickLine={false}",
                             ],
@@ -172,7 +172,7 @@ def test_line_chart():
                             "name": "RechartsXAxis",
                             "props": [
                                 "includeHidden={false}",
-                                'label={{"value": "b", "position": "bottom"}}',
+                                'label={{"value": "a", "position": "bottom"}}',
                                 "stroke={`var(--gray-9)`}",
                                 "tickLine={false}",
                             ],
@@ -195,7 +195,7 @@ def test_line_chart():
                         {
                             "name": "RechartsYAxis",
                             "props": [
-                                'label={{"value": "a", "position": "left", "angle": -90}}',
+                                'label={{"value": "b", "position": "left", "angle": -90}}',
                                 "stroke={`var(--gray-9)`}",
                                 "tickLine={false}",
                             ],
@@ -269,7 +269,7 @@ def test_area_chart():
                             "name": "RechartsXAxis",
                             "props": [
                                 "includeHidden={false}",
-                                'label={{"value": "b", "position": "bottom"}}',
+                                'label={{"value": "a", "position": "bottom"}}',
                                 "stroke={`var(--gray-9)`}",
                                 "tickLine={false}",
                             ],
@@ -292,7 +292,7 @@ def test_area_chart():
                         {
                             "name": "RechartsYAxis",
                             "props": [
-                                'label={{"value": "a", "position": "left", "angle": -90}}',
+                                'label={{"value": "b", "position": "left", "angle": -90}}',
                                 "stroke={`var(--gray-9)`}",
                                 "tickLine={false}",
                             ],
