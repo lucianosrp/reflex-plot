@@ -39,4 +39,4 @@ packages = ["src/reflex_plot"]
 addopts = "--cov=src --cov-fail-under=100"
 
 [project.entry-points.pandas_plotting_backends]
-reflex = "reflex_plot:pd_backend"
+reflex = "reflex_plot"
