@@ -1,6 +1,8 @@
 # reflex-plot
-Seamlessly plot dataframes in _Reflex_.
-\
+Seamlessly plot dataframes in _Reflex_ just like you would do with Matplotlib.
+
+![](./static/screenshot.png)
+
 You can import `plot` from `reflex_plot` to get a Rechart component.
 
 ```python
@@ -30,11 +32,11 @@ def plot_data(kind: Literal["line", "area", "bar"]) -> rx.Component:
 
 ## Pandas plotting backend
 
-You can also set `reflex_plot` as the default backend for pandas and use `DataFraem.plot` as you would do with Matplotlib
+You can also set `reflex_plot` as the default backend for pandas and use `DataFrame.plot` as you would do with Matplotlib
 
 
 ```python
-pd.set_option("plotting.backend", "reflex_plot.pd_backend")
+pd.set_option("plotting.backend", "reflex_plot")
 
 
 def plot_data(kind: Literal["line", "area", "bar"]) -> rx.Component:
