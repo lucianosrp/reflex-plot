@@ -16,9 +16,9 @@ def plot(
 ) -> rx.Component:
     components = [
         getattr(rx.recharts, kind)(data_key=y),
-        rx.recharts.x_axis(x or xlabel, label=dict(value=y, position="bottom")),
+        rx.recharts.x_axis(x or xlabel, label=dict(value=x, position="bottom")),
         rx.recharts.y_axis(
-            y or ylabel, label=dict(value=x, position="left", angle=-90)
+            y or ylabel, label=dict(value=y, position="left", angle=-90)
         ),
     ]
 
