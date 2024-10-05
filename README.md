@@ -60,3 +60,8 @@ def plot_data(kind: Literal["line", "area", "bar"]) -> rx.Component:
 ```
 pip install reflex-plot
 ```
+
+## Charts type covered
+- [x] Line
+- [x] Area
+- [x] Bar
