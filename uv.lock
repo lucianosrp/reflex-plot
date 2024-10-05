@@ -1268,6 +1268,7 @@ name = "reflex-plot"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "pandas", marker = "python_full_version >= '3.12'" },
     { name = "reflex", marker = "python_full_version >= '3.12'" },
 ]
 
@@ -1280,7 +1281,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "reflex", specifier = ">=0.5.9" }]
+requires-dist = [
+    { name = "pandas", specifier = ">=2.0.0" },
+    { name = "reflex", specifier = ">=0.5.9" },
+]
 
 [package.metadata.requires-dev]
 dev = [

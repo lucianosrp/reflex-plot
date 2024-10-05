@@ -1,12 +1,12 @@
 import pytest
 from inline_snapshot import snapshot
 from reflex.components.radix.themes.components.tooltip import tooltip
+import pandas as pd
+
+pd.set_option("plotting.backend", "reflex_plot")
 
 
 def test_bar_chart():
-    import pandas as pd
-
-    pd.set_option("plotting.backend", "reflex_plot.pd_backend")
     df = pd.DataFrame({"a": [1, 2], "b": [10, 0]})
     pandas_chart = df.plot(
         kind="bar",
@@ -14,7 +14,6 @@ def test_bar_chart():
         y="b",
         grid=True,
         tool_tip=True,
-        backend="reflex_plot.pd_backend",
     ).render()
     assert pandas_chart == snapshot(
         {
@@ -51,7 +50,7 @@ def test_bar_chart():
                             "name": "RechartsXAxis",
                             "props": [
                                 "includeHidden={false}",
-                                'label={{"value": "b", "position": "bottom"}}',
+                                'label={{"value": "a", "position": "bottom"}}',
                                 "stroke={`var(--gray-9)`}",
                                 "tickLine={false}",
                             ],
@@ -74,7 +73,7 @@ def test_bar_chart():
                         {
                             "name": "RechartsYAxis",
                             "props": [
-                                'label={{"value": "a", "position": "left", "angle": -90}}',
+                                'label={{"value": "b", "position": "left", "angle": -90}}',
                                 "stroke={`var(--gray-9)`}",
                                 "tickLine={false}",
                             ],
@@ -133,11 +132,8 @@ def test_bar_chart():
 def test_line_chart():
     import pandas as pd
 
-    pd.set_option("plotting.backend", "reflex_plot.pd_backend")
     df = pd.DataFrame({"a": [1, 2], "b": [10, 0]})
-    pandas_chart = df.plot(
-        kind="line", x="a", y="b", backend="reflex_plot.pd_backend"
-    ).render()
+    pandas_chart = df.plot(kind="line", x="a", y="b").render()
     assert pandas_chart == snapshot(
         {
             "name": "RechartsResponsiveContainer",
@@ -176,7 +172,7 @@ def test_line_chart():
                             "name": "RechartsXAxis",
                             "props": [
                                 "includeHidden={false}",
-                                'label={{"value": "b", "position": "bottom"}}',
+                                'label={{"value": "a", "position": "bottom"}}',
                                 "stroke={`var(--gray-9)`}",
                                 "tickLine={false}",
                             ],
@@ -199,7 +195,7 @@ def test_line_chart():
                         {
                             "name": "RechartsYAxis",
                             "props": [
-                                'label={{"value": "a", "position": "left", "angle": -90}}',
+                                'label={{"value": "b", "position": "left", "angle": -90}}',
                                 "stroke={`var(--gray-9)`}",
                                 "tickLine={false}",
                             ],
@@ -231,11 +227,8 @@ def test_line_chart():
 def test_area_chart():
     import pandas as pd
 
-    pd.set_option("plotting.backend", "reflex_plot.pd_backend")
     df = pd.DataFrame({"a": [1, 2], "b": [10, 0]})
-    pandas_chart = df.plot(
-        kind="area", x="a", y="b", backend="reflex_plot.pd_backend"
-    ).render()
+    pandas_chart = df.plot(kind="area", x="a", y="b").render()
     assert pandas_chart == snapshot(
         {
             "name": "RechartsResponsiveContainer",
@@ -276,7 +269,7 @@ def test_area_chart():
                             "name": "RechartsXAxis",
                             "props": [
                                 "includeHidden={false}",
-                                'label={{"value": "b", "position": "bottom"}}',
+                                'label={{"value": "a", "position": "bottom"}}',
                                 "stroke={`var(--gray-9)`}",
                                 "tickLine={false}",
                             ],
@@ -299,7 +292,7 @@ def test_area_chart():
                         {
                             "name": "RechartsYAxis",
                             "props": [
-                                'label={{"value": "a", "position": "left", "angle": -90}}',
+                                'label={{"value": "b", "position": "left", "angle": -90}}',
                                 "stroke={`var(--gray-9)`}",
                                 "tickLine={false}",
                             ],
