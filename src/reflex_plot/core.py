@@ -1,4 +1,4 @@
-from typing import Literal, Optional
+from typing import Literal, Optional, Dict
 
 import pandas as pd
 import reflex as rx
@@ -13,6 +13,9 @@ def plot(
     ylabel: Optional[str] = None,
     grid: bool = False,
     tool_tip: bool = False,
+    heigth: int = 300,
+    width: str = "100%",
+    margin: Dict[str,int] = dict(left=60, bottom=60)
 ) -> rx.Component:
     components = [
         getattr(rx.recharts, kind)(data_key=y),
@@ -33,7 +36,7 @@ def plot(
     return getattr(rx.recharts, f"{kind}_chart")(
         *components,
         data=df.to_dict("records"),
-        width="100%",
-        height=300,
-        margin=dict(left=60, bottom=60),
+        width=width,
+        height=heigth,
+        margin=margin,
     )
