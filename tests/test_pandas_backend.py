@@ -1,7 +1,5 @@
-import pytest
-from inline_snapshot import snapshot
-from reflex.components.radix.themes.components.tooltip import tooltip
 import pandas as pd
+from inline_snapshot import snapshot
 
 pd.set_option("plotting.backend", "reflex_plot")
 
@@ -39,7 +37,10 @@ def test_bar_chart():
                     "children": [
                         {
                             "name": "RechartsBar",
-                            "props": ["dataKey={`b`}", "fill={`var(--accent-9)`}"],
+                            "props": [
+                                "dataKey={`b`}",
+                                "fill={`var(--accent-9)`}",
+                            ],
                             "contents": "",
                             "args": None,
                             "special_props": set(),
