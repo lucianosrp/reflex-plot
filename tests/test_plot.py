@@ -1,22 +1,27 @@
 import pandas as pd
 from inline_snapshot import snapshot
 
-pd.set_option("plotting.backend", "reflex_plot")
+from reflex_plot.core import plot
 
 
-def test_bar_chart():
+def test_bar_plot():
     df = pd.DataFrame({"a": [1, 2], "b": [10, 0]})
-    pandas_chart = df.plot(
+    chart = plot(
+        df,
         kind="bar",
         x="a",
         y="b",
         grid=True,
         tool_tip=True,
     ).render()
-    assert pandas_chart == snapshot(
+
+    assert chart == snapshot(
         {
             "name": "RechartsResponsiveContainer",
-            "props": ["height={300}", "width={`100%`}"],
+            "props": [
+                "height={300}",
+                "width={`100%`}",
+            ],
             "contents": "",
             "args": None,
             "special_props": set(),
@@ -37,10 +42,7 @@ def test_bar_chart():
                     "children": [
                         {
                             "name": "RechartsBar",
-                            "props": [
-                                "dataKey={`b`}",
-                                "fill={`var(--accent-9)`}",
-                            ],
+                            "props": ["dataKey={`b`}", "fill={`var(--accent-9)`}"],
                             "contents": "",
                             "args": None,
                             "special_props": set(),
@@ -130,15 +132,17 @@ def test_bar_chart():
     )
 
 
-def test_line_chart():
-    import pandas as pd
-
+def test_line_plot():
     df = pd.DataFrame({"a": [1, 2], "b": [10, 0]})
-    pandas_chart = df.plot(kind="line", x="a", y="b").render()
-    assert pandas_chart == snapshot(
+    chart = plot(df, kind="line", x="a", y="b").render()
+
+    assert chart == snapshot(
         {
             "name": "RechartsResponsiveContainer",
-            "props": ["height={300}", "width={`100%`}"],
+            "props": [
+                "height={300}",
+                "width={`100%`}",
+            ],
             "contents": "",
             "args": None,
             "special_props": set(),
@@ -225,15 +229,17 @@ def test_line_chart():
     )
 
 
-def test_area_chart():
-    import pandas as pd
-
+def test_area_plot():
     df = pd.DataFrame({"a": [1, 2], "b": [10, 0]})
-    pandas_chart = df.plot(kind="area", x="a", y="b").render()
-    assert pandas_chart == snapshot(
+    chart = plot(df, kind="area", x="a", y="b").render()
+
+    assert chart == snapshot(
         {
             "name": "RechartsResponsiveContainer",
-            "props": ["height={300}", "width={`100%`}"],
+            "props": [
+                "height={300}",
+                "width={`100%`}",
+            ],
             "contents": "",
             "args": None,
             "special_props": set(),
