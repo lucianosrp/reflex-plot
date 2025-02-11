@@ -30,7 +30,7 @@ def plot_data(kind: Literal["line", "area", "bar"]) -> rx.Component:
     )
 ```
 ## Plot _any_ DataFrame
-Using [Narwhals](https://github.com/pyjanitor-devs/narwhals) under the hood, `reflex-plot` supports plotting from any DataFrame library including Pandas, Polars, and Dask. The `plot()` function accepts any DataFrame type and seamlessly converts it to a Recharts component.
+Using [Narwhals](https://github.com/narwhals-dev/narwhals) under the hood, `reflex-plot` supports plotting from any DataFrame library including Pandas, Polars, and Dask. The `plot()` function accepts any DataFrame type and seamlessly converts it to a Recharts component.
 
 ```python
 import polars as pl
