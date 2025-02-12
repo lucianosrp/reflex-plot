@@ -1,4 +1,4 @@
-from typing import Dict, Literal, Optional
+from typing import Literal
 
 import narwhals as nw
 import reflex as rx
@@ -10,13 +10,13 @@ def plot(
     kind: Literal["line", "area", "bar"],
     x: str,
     y: str,
-    xlabel: Optional[str] = None,
-    ylabel: Optional[str] = None,
+    xlabel: str | None = None,
+    ylabel: str | None = None,
     grid: bool = False,
     tool_tip: bool = False,
     heigth: int = 300,
     width: str = "100%",
-    margin: Dict[str, int] = dict(left=60, bottom=60),
+    margin: dict[str, int] = dict(left=60, bottom=60),
 ) -> rx.Component:
     df = nw.from_native(df)
     data = df.rows(named=True)
