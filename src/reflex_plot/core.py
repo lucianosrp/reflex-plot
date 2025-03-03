@@ -1,8 +1,33 @@
-from typing import Literal
+from typing import Literal, TypeAlias
 
 import narwhals as nw
 import reflex as rx
 from narwhals.typing import IntoDataFrame
+
+LineStyle: TypeAlias = Literal["-", "--", "..."]
+Grid: TypeAlias = Literal["x", "y", "both"]
+
+
+def _get_grid_linestyle(
+    linestyle: LineStyle | None, linewidth: int = 3
+) -> dict:
+    match linestyle:
+        case "-":
+            return {}
+        case "--":
+            return dict(stroke_dasharray=f"{linewidth} {linewidth}")
+        case _:
+            return {}
+
+
+def _get_grid(grid: Grid) -> dict:
+    match grid:
+        case "both":
+            return {}
+        case "y":
+            return dict(horizontal=True, vertical=False)
+        case "x":
+            return dict(vertical=True, horizontal=False)
 
 
 def plot(
@@ -12,7 +37,9 @@ def plot(
     y: str,
     xlabel: str | None = None,
     ylabel: str | None = None,
-    grid: bool = False,
+    grid: Grid | None = "x",
+    grid_linestyle: LineStyle | None = "-",
+    grid_linewidth: int = 3,
     tool_tip: bool = False,
     heigth: int = 300,
     width: str = "100%",
@@ -28,9 +55,14 @@ def plot(
         ),
     ]
 
-    if grid:
+    if grid is not None:
         components.append(
-            rx.recharts.cartesian_grid(stroke_dasharray="4 4"),
+            rx.recharts.cartesian_grid(
+                **(
+                    _get_grid(grid)
+                    | _get_grid_linestyle(grid_linestyle, grid_linewidth)
+                ),
+            ),
         )
 
     if tool_tip:
