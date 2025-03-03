@@ -11,7 +11,7 @@ def test_bar_plot():
         kind="bar",
         x="a",
         y="b",
-        grid=True,
+        grid="x",
         tool_tip=True,
     ).render()
 
@@ -42,7 +42,10 @@ def test_bar_plot():
                     "children": [
                         {
                             "name": "RechartsBar",
-                            "props": ["dataKey={`b`}", "fill={`var(--accent-9)`}"],
+                            "props": [
+                                "dataKey={`b`}",
+                                "fill={`var(--accent-9)`}",
+                            ],
                             "contents": "",
                             "args": None,
                             "special_props": set(),
@@ -99,8 +102,9 @@ def test_bar_plot():
                         {
                             "name": "RechartsCartesianGrid",
                             "props": [
+                                "horizontal={false}",
                                 "stroke={`var(--gray-7)`}",
-                                "strokeDasharray={`4 4`}",
+                                "vertical={true}",
                             ],
                             "contents": "",
                             "args": None,
@@ -134,7 +138,7 @@ def test_bar_plot():
 
 def test_line_plot():
     df = pd.DataFrame({"a": [1, 2], "b": [10, 0]})
-    chart = plot(df, kind="line", x="a", y="b").render()
+    chart = plot(df, kind="line", x="a", y="b", grid="both").render()
 
     assert chart == snapshot(
         {
@@ -220,6 +224,15 @@ def test_line_plot():
                             ],
                             "autofocus": False,
                         },
+                        {
+                            "name": "RechartsCartesianGrid",
+                            "props": ["stroke={`var(--gray-7)`}"],
+                            "contents": "",
+                            "args": None,
+                            "special_props": set(),
+                            "children": [],
+                            "autofocus": False,
+                        },
                     ],
                     "autofocus": False,
                 }
@@ -231,7 +244,7 @@ def test_line_plot():
 
 def test_area_plot():
     df = pd.DataFrame({"a": [1, 2], "b": [10, 0]})
-    chart = plot(df, kind="area", x="a", y="b").render()
+    chart = plot(df, kind="area", x="a", y="b", grid="y").render()
 
     assert chart == snapshot(
         {
@@ -317,6 +330,19 @@ def test_area_plot():
                                     "autofocus": False,
                                 }
                             ],
+                            "autofocus": False,
+                        },
+                        {
+                            "name": "RechartsCartesianGrid",
+                            "props": [
+                                "horizontal={true}",
+                                "stroke={`var(--gray-7)`}",
+                                "vertical={false}",
+                            ],
+                            "contents": "",
+                            "args": None,
+                            "special_props": set(),
+                            "children": [],
                             "autofocus": False,
                         },
                     ],

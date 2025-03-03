@@ -10,7 +10,7 @@ def test_bar_chart():
         kind="bar",
         x="a",
         y="b",
-        grid=True,
+        grid="both",
         tool_tip=True,
     ).render()
     assert pandas_chart == snapshot(
@@ -96,10 +96,7 @@ def test_bar_chart():
                         },
                         {
                             "name": "RechartsCartesianGrid",
-                            "props": [
-                                "stroke={`var(--gray-7)`}",
-                                "strokeDasharray={`4 4`}",
-                            ],
+                            "props": ["stroke={`var(--gray-7)`}"],
                             "contents": "",
                             "args": None,
                             "special_props": set(),
@@ -216,6 +213,19 @@ def test_line_chart():
                             ],
                             "autofocus": False,
                         },
+                        {
+                            "name": "RechartsCartesianGrid",
+                            "props": [
+                                "horizontal={false}",
+                                "stroke={`var(--gray-7)`}",
+                                "vertical={true}",
+                            ],
+                            "contents": "",
+                            "args": None,
+                            "special_props": set(),
+                            "children": [],
+                            "autofocus": False,
+                        },
                     ],
                     "autofocus": False,
                 }
@@ -311,6 +321,19 @@ def test_area_chart():
                                     "autofocus": False,
                                 }
                             ],
+                            "autofocus": False,
+                        },
+                        {
+                            "name": "RechartsCartesianGrid",
+                            "props": [
+                                "horizontal={false}",
+                                "stroke={`var(--gray-7)`}",
+                                "vertical={true}",
+                            ],
+                            "contents": "",
+                            "args": None,
+                            "special_props": set(),
+                            "children": [],
                             "autofocus": False,
                         },
                     ],
